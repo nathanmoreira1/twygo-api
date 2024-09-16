@@ -1,5 +1,7 @@
 class Video < ApplicationRecord
   belongs_to :course
 
-  validates :title, :url, :size, presence: true
+  has_one_attached :file
+
+  validates :title, presence: true
 end

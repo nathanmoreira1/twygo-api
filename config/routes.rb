@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   resources :courses do
-    resources :videos, only: [:index, :create, :update, :destroy]
+    resources :videos, only: [:index, :create, :update, :destroy, :show]
   end
 end

@@ -1,8 +1,8 @@
 class CoursesController < ApplicationController
   # Listar todos os cursos ativos
   def index
-    @courses = Course.where('end_date >= ?', Date.today).includes(:videos)
-    render json: @courses.as_json(include: :videos, methods: :total_video_size)
+    @courses = Course.where('end_date >= ?', Date.today)
+    render json: @courses
   end
 
   # Criar novo curso

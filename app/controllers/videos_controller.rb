@@ -1,6 +1,6 @@
 class VideosController < ApplicationController
   before_action :set_course
-  before_action :set_video, only: [:update, :destroy]
+  before_action :set_video, only: [:update, :destroy, :show]
 
   # Listar vídeos de um curso
   def index
@@ -33,6 +33,21 @@ class VideosController < ApplicationController
     head :no_content
   end
 
+  def show
+    if @video.file.attached?
+      video_url = url_for(@video.file)
+      render json: {
+        id: @video.id,
+        title: @video.title,
+        url: video_url,
+        size: @video.file.byte_size,
+        content_type: @video.file.content_type
+      }, status: :ok
+    else
+      render json: { error: "Video file not found" }, status: :not_found
+    end
+  end
+
   private
 
   # Encontrar o curso com base no course_id
@@ -47,6 +62,6 @@ class VideosController < ApplicationController
 
   # Parâmetros permitidos para vídeo
   def video_params
-    params.require(:video).permit(:title, :url, :size)
+    params.permit(:title, :file, :course_id)
   end
 end
