@@ -1,11 +1,22 @@
 class VideosController < ApplicationController
   before_action :set_course
-  before_action :set_video, only: [:update, :destroy, :show]
+  before_action :set_video, only: [:update, :destroy, :show, :stream]
 
   # Listar vídeos de um curso
   def index
     @videos = @course.videos
     render json: @videos
+  end
+
+  def index
+    @videos = @course.videos.paginate(page: params[:page], per_page: params[:per_page] || 10)
+
+    render json: {
+      videos: @videos,
+      total_pages: @videos.total_pages,
+      current_page: @videos.current_page,
+      per_page: params[:per_page] || 10
+    }
   end
 
   # Criar um novo vídeo para um curso
@@ -34,18 +45,24 @@ class VideosController < ApplicationController
   end
 
   def show
-    if @video.file.attached?
-      video_url = url_for(@video.file)
-      render json: {
-        id: @video.id,
-        title: @video.title,
-        url: video_url,
-        size: @video.file.byte_size,
-        content_type: @video.file.content_type
-      }, status: :ok
-    else
-      render json: { error: "Video file not found" }, status: :not_found
+    render json: {
+      id: @video.id,
+      title: @video.title,
+      file_name: @video.file.filename.to_s,
+      created_at: @video.created_at,
+      updated_at: @video.updated_at
+    }
+  end
+
+  def stream
+    response.headers["Content-Type"] = @video.file.content_type
+    response.headers["Content-Disposition"] = "inline; filename=\"#{@video.file.filename}\""
+
+    @video.file.download do |chunk|
+      response.stream.write(chunk)
     end
+  ensure
+    response.stream.close
   end
 
   private
@@ -62,6 +79,6 @@ class VideosController < ApplicationController
 
   # Parâmetros permitidos para vídeo
   def video_params
-    params.permit(:title, :file, :course_id)
+    params.permit(:id, :title, :file, :course_id)
   end
 end
