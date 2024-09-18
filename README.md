@@ -1,24 +1,58 @@
-# README
+# Twygo API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Twygo API é uma aplicação backend desenvolvida em Ruby on Rails para fornecer uma API RESTful para gerenciar cursos e vídeos. Este projeto é configurado para rodar com Docker, facilitando o ambiente de desenvolvimento e a implantação.
 
-Things you may want to cover:
+## Funcionalidades
 
-* Ruby version
+- Gerenciamento de cursos
+- Upload e streaming de vídeos
 
-* System dependencies
+## Requisitos
 
-* Configuration
+- Docker
+- Docker Compose
 
-* Database creation
+## Configuração Local
 
-* Database initialization
+Para rodar a aplicação localmente, siga as instruções abaixo:
 
-* How to run the test suite
+1. **Clone o repositório**
 
-* Services (job queues, cache servers, search engines, etc.)
+   ```bash
+   git clone https://github.com/seu-usuario/twygo-api.git
+   cd twygo-api
 
-* Deployment instructions
+   ```
 
-* ...
+2. **Construa e inicie os containers**
+
+   Execute o comando abaixo para construir a imagem Docker e iniciar os containers:
+
+   ```bash
+   docker-compose up --build
+
+   ```
+
+3. **Rodar Migrations**
+
+   Execute as migrations do banco de dados:
+
+   ```bash
+   docker-compose exec rails rake db:migrate
+   ```
+
+## Scripts de Docker
+
+    Aqui estão alguns comandos úteis para gerenciar a aplicação:
+
+    Parar os containers:
+
+    ```bash
+    docker-compose down
+    ```
+
+    Acessar o console Rails:
+
+    ```bash
+    docker-compose exec rails rails console
+    ```
