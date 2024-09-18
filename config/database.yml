@@ -21,7 +21,10 @@ default: &default
 
 development:
   <<: *default
-  database: twygo_api_development
+  database: myapp_development
+  username: user
+  password: password
+  host: db
 
   # The specified database role being used to connect to PostgreSQL.
   # To create additional roles in PostgreSQL see `$ createuser --help`.
