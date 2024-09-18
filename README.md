@@ -33,16 +33,18 @@ Para rodar a aplicação localmente, siga as instruções abaixo:
    POSTGRES_DB=
    DATABASE_HOST=db
    RAILS_ENV=development
-   SECRET_KEY_BASE==
+   SECRET_KEY_BASE=
    ```
 
-   Quanto as variáveis referentes ao banco de dados que não estão definidas, você pode colocar as credenciais que preferir. Já quanto a SECRET_KEY_BASE, você pode inserir alguma chave aleatória.
+   Quanto as variáveis de ambiente referentes ao banco de dados que não estão definidas, você pode colocar as credenciais que preferir. Já quanto a SECRET_KEY_BASE, você pode inserir alguma chave aleatória.
 
    Caso você possua o rails instalado, pode gerar uma facilmente usando o comando abaixo
 
    ```bash
    rails secret
    ```
+
+   Com isso concluido, renomeie o arquivo para ".env".
 
 3. **Construa e inicie os containers**
 
