@@ -27,6 +27,7 @@ class Video < ApplicationRecord
       Rails.logger.error("Failed to extract duration from video")
     else
       update_column(:duration, duration.to_f)
+      course.update_total_duration
     end
 
     File.delete(temp_file_path) if File.exist?(temp_file_path)
