@@ -35,8 +35,8 @@ Para rodar a aplicação localmente, siga as instruções abaixo:
 
 3. **Rodar Migrations**
 
-   Execute as migrations do banco de dados
-
+   Atenção: Para conseguir rodar os comandos abaixo, você precisa manter o terminal que rodou a etapa anterior aberto!
+   
    Acesse o terminal do Docker com o seguinte comando:
 
    ```bash
