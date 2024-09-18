@@ -35,10 +35,18 @@ Para rodar a aplicação localmente, siga as instruções abaixo:
 
 3. **Rodar Migrations**
 
-   Execute as migrations do banco de dados:
+   Execute as migrations do banco de dados
+
+   Acesse o terminal do Docker com o seguinte comando:
 
    ```bash
-   docker-compose exec rails rake db:migrate
+   docker-compose exec rails /bin/bash
+   ```
+
+   Rode as migrações:
+
+   ```bash
+   bundle exec rake db:migrate
    ```
 
 ## Scripts de Docker
