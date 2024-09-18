@@ -24,7 +24,27 @@ Para rodar a aplicação localmente, siga as instruções abaixo:
 
    ```
 
-2. **Construa e inicie os containers**
+2. **Defina as variáveis de ambiente**
+   Verifique seu arquivo ".env.example", que possui as variáveis de ambiente que você precisará definir.
+
+   ```bash
+   POSTGRES_USER=
+   POSTGRES_PASSWORD=
+   POSTGRES_DB=
+   DATABASE_HOST=db
+   RAILS_ENV=development
+   SECRET_KEY_BASE==
+   ```
+
+   Quanto as variáveis referentes ao banco de dados que não estão definidas, você pode colocar as credenciais que preferir. Já quanto a SECRET_KEY_BASE, você pode inserir alguma chave aleatória.
+
+   Caso você possua o rails instalado, pode gerar uma facilmente usando o comando abaixo
+
+   ```bash
+   rails secret
+   ```
+
+3. **Construa e inicie os containers**
 
    Execute o comando abaixo para construir a imagem Docker e iniciar os containers:
 
@@ -33,10 +53,10 @@ Para rodar a aplicação localmente, siga as instruções abaixo:
 
    ```
 
-3. **Rodar Migrations**
+4. **Rodar Migrations**
 
    Atenção: Para conseguir rodar os comandos abaixo, você precisa manter o terminal que rodou a etapa anterior aberto!
-   
+
    Acesse o terminal do Docker com o seguinte comando:
 
    ```bash

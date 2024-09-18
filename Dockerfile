@@ -12,6 +12,10 @@ ENV BUNDLE_PATH="/usr/local/bundle" \
     BUNDLE_WITHOUT="development" \
     DEBIAN_FRONTEND=noninteractive
 
+# Set environment variables for Rails
+ARG RAILS_ENV=production
+ENV RAILS_ENV=$RAILS_ENV
+
 # Throw-away build stage to reduce size of final image
 FROM base as build
 
