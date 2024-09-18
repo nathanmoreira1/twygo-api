@@ -43,16 +43,16 @@ Para rodar a aplicação localmente, siga as instruções abaixo:
 
 ## Scripts de Docker
 
-    Aqui estão alguns comandos úteis para gerenciar a aplicação:
+Aqui estão alguns comandos úteis para gerenciar a aplicação:
 
-    Parar os containers:
+1. **Parar os containers**
 
-    ```bash
+   ```bash
     docker-compose down
-    ```
+   ```
 
-    Acessar o console Rails:
+2. **Acessar o console Rails**
 
-    ```bash
+   ```bash
     docker-compose exec rails rails console
-    ```
+   ```
