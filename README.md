@@ -25,6 +25,7 @@ Para rodar a aplicação localmente, siga as instruções abaixo:
    ```
 
 2. **Defina as variáveis de ambiente**
+
    Verifique seu arquivo ".env.example", que possui as variáveis de ambiente que você precisará definir.
 
    ```bash
