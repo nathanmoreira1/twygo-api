@@ -19,7 +19,7 @@ Para rodar a aplicação localmente, siga as instruções abaixo:
 1. **Clone o repositório**
 
    ```bash
-   git clone https://github.com/seu-usuario/twygo-api.git
+   git clone https://github.com/nathanmoreira1/twygo-api.git
    cd twygo-api
 
    ```
