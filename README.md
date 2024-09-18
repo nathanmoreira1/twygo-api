@@ -56,12 +56,12 @@ Aqui estão alguns comandos úteis para gerenciar a aplicação:
 1. **Parar os containers**
 
    ```bash
-    docker-compose down
+   docker-compose down
    ```
 
 2. **Acessar o console Rails**
 
    ```bash
-     docker-compose exec rails /bin/bash
-     bundle exec rails console
+   docker-compose exec rails /bin/bash
+   bundle exec rails console
    ```
